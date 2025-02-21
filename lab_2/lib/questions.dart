@@ -51,7 +51,19 @@ class _QuestionsState extends State<Questions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Quiz App")),
+      appBar: AppBar(
+        title: Text(
+          "Quiz App",
+          style: TextStyle(
+              color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Color.fromARGB(255, 174, 129, 169),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+          size: 40,
+        ),
+      ),
+      backgroundColor: Color.fromARGB(255, 174, 129, 169),
       body: Center(
         child: quizCompleted
             ? Column(
@@ -59,19 +71,26 @@ class _QuestionsState extends State<Questions> {
                 children: [
                   Text(
                     "Quiz Completed!",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
                   ),
                   SizedBox(height: 20),
                   Text(
                     "Your Score: ${answers.values.where((correct) => correct).length} / ${questions.length}",
-                    style: TextStyle(fontSize: 20, color: Colors.blueAccent),
+                    style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                   SizedBox(height: 30),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed("home");
                     },
-                    child: Text("Go to Home Page"),
+                    child: Text(
+                      "Go to Home Page",
+                      style:
+                          TextStyle(color: Color.fromARGB(255, 174, 129, 169)),
+                    ),
                   ),
                 ],
               )
@@ -81,7 +100,10 @@ class _QuestionsState extends State<Questions> {
                   // **Current Question Display**
                   Text(
                     "Question $currentIndex",
-                    style: TextStyle(fontSize: 40),
+                    style: TextStyle(
+                        fontSize: 40,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
                   ),
                   Wrap(
                     alignment: WrapAlignment.center,
@@ -90,7 +112,7 @@ class _QuestionsState extends State<Questions> {
                         padding: const EdgeInsets.symmetric(horizontal: 5.0),
                         child: Icon(
                           entry.value ? Icons.check_circle : Icons.cancel,
-                          color: entry.value ? Colors.green : Colors.red,
+                          color: entry.value ? Colors.green : Colors.black,
                           size: 30,
                         ),
                       );
@@ -100,8 +122,10 @@ class _QuestionsState extends State<Questions> {
                     padding: const EdgeInsets.all(20.0),
                     child: Text(
                       questions[currentIndex]!.text,
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -114,14 +138,24 @@ class _QuestionsState extends State<Questions> {
                         onPressed: answers.containsKey(currentIndex)
                             ? null
                             : () => answerQuestion(false),
-                        child: Text('False'),
+                        child: Text(
+                          'False',
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 174, 129, 169),
+                              fontSize: 18),
+                        ),
                       ),
                       SizedBox(width: 20),
                       ElevatedButton(
                         onPressed: answers.containsKey(currentIndex)
                             ? null
                             : () => answerQuestion(true),
-                        child: Text('True'),
+                        child: Text(
+                          'True',
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 174, 129, 169),
+                              fontSize: 18),
+                        ),
                       ),
                     ],
                   ),

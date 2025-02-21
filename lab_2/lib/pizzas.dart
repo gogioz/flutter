@@ -10,18 +10,25 @@ class Pizzas extends StatefulWidget {
 
 class _PizzasState extends State<Pizzas> {
   List<Pizza> pizzas = [
-    Pizza(product: "Vegetable Pizza", url: "../imgs/vegeis.jpg"),
-    Pizza(product: "Cheese Pizza", url: "../imgs/cheese.jpg"),
-    Pizza(product: "Fries", url: "../imgs/fries.jpg"),
-    Pizza(product: "Noodles", url: "../imgs/noodels.jpg"),
-    Pizza(product: "Burger", url: "../imgs/burger.jpg"),
+    Pizza(product: "Vegetable Pizza", url: "imgs/vegeis.jpg"),
+    Pizza(product: "Cheese Pizza", url: "imgs/cheese.jpg"),
+    Pizza(product: "Fries", url: "imgs/fries.jpg"),
+    Pizza(product: "Noodles", url: "imgs/noodels.jpg"),
+    Pizza(product: "Burger", url: "imgs/burger.jpg"),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("WOW Pizza"),
+          iconTheme: IconThemeData(color: Colors.white, size: 40),
+          title: Text(
+            "WOW Pizza",
+            style: TextStyle(
+                color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+          ),
+          backgroundColor: Colors.orange[100],
         ),
+        backgroundColor: Colors.orange[100],
         body: ListView(
           padding: EdgeInsets.all(10), // Adds padding to the whole list
           children: pizzas
@@ -31,7 +38,7 @@ class _PizzasState extends State<Pizzas> {
                     child: ListTile(
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                      tileColor: const Color.fromARGB(46, 0, 0, 0),
+                      tileColor: Colors.orange[300],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       onTap: () {
@@ -42,7 +49,10 @@ class _PizzasState extends State<Pizzas> {
                       },
                       title: Text(
                         pizza.product,
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                       leading: Image.asset(pizza.url),
                     ),

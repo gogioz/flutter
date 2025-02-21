@@ -17,19 +17,33 @@ class _PizzaState extends State<Pizza> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(name),
+        title: Text(
+          name,
+          style: TextStyle(
+              color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+        ),
+        iconTheme: IconThemeData(color: Colors.white, size: 40),
+        backgroundColor: Colors.orange[100],
       ),
+      backgroundColor: Colors.orange[100],
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(url),
+            Image.asset(
+              url,
+              width: 350,
+              height: 300,
+            ),
             SizedBox(
               height: 20,
             ),
             Text(
               "Enjoy your $name !",
-              style: TextStyle(fontSize: 40),
+              style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
             )
           ],
         ),
